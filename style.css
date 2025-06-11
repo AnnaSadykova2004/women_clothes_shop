@@ -1,0 +1,785 @@
+/* Общие стили */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: 400;
+    font-style: normal;
+    color: #45343d;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+    text-align: justify;
+    overflow-x: hidden;
+}
+
+div, p, input, button, form, span, a, ul, li {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+p {
+    line-height: 1.65em;
+}
+
+/* ссылка перехода на главную секцию */
+.back-to-main {
+    position: absolute;
+    bottom: 10px;     
+    right: 10px;      
+    display: inline-block;
+    padding: 5px 10px;
+    color: #45343d;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Общие свойства для контейнеров всех секций */
+.container1, .container2, .container3, .container4, 
+.container5, .container6, .container7 {
+    width: 100%;  /*ширина каждой секции занимает 100% ширины экрана */
+    display: flex;
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    flex-direction: column;
+    padding-top: 0px;
+    position: relative;
+}
+
+/* Общие свойства для всех блоков */
+.block1, .block2, .block3, .block4, .block6, .block7 {
+    width: 70%;   /*контент каждого блока занимает 70% ширины своего родительского контейнера */
+    height: 100%;
+    display: flex;
+}
+
+/* Стили некотрых фраз и заголовков написанных заглавными буквами:
+"О НАС", "ПОРА", "ОБНОВИТЬ", "ГАРДЕРОБ", "А КАКАЯ ТЫ СЕГОДНЯ", "ЧАСТЫЕ ВОПРОСЫ",
+"РЕГИСТРАЦИЯ", "СКИДКА 20%" */
+.title_text {
+    height: 38px;                   
+    font-size: 30px;                
+    font-family: "Forum", serif;  
+}
+
+/* Декоративный рукописный шрифт */
+.decorative_text {
+    font-family: "Comforter", cursive;
+    font-size: 35px;
+    line-height: 23px; 
+    display: inline-block;
+}
+
+button {
+    cursor: pointer;
+    height: 51px;
+    align-self: flex-end;
+    font-weight: 700;
+    border-radius: 10px;
+    border-width: 0px;
+    font-size: 16px;
+    background: linear-gradient(white, rgb(255, 217, 223));
+    color: #45343d;
+}
+
+
+
+/* стили первой секции */
+
+.container1 {
+    height: 857px;
+    background-image: url('images/фон секция1.png');
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.block1 { 
+    flex-direction: column; /* все дочерние конструкции(контейнеры) располагаются друг под другом */
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0px;
+    padding-top: 0px;
+    flex-shrink: 0; 
+}
+
+/* стиль блока меню */
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 57px; 
+    padding: 0px;
+    height: 42px;
+}
+
+/* стиль ссылок в блоке меню */
+.menu-links {
+    display: flex;      
+    gap: 20px;          
+    margin: 0px;
+}
+
+/* сами ссылки меню */
+.menu-links a {
+    color: #45343D;                     
+    text-decoration: none;              
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, padding 0.3s ease; /* Добавлено изменение padding */
+    border-radius: 5px;                 
+    cursor: pointer;                    /* Показываем указатель */
+    padding: 4px 8px;                   /* Минимальный отступ */
+    display: flex;                      
+    justify-content: center;            /* Центрируем текст по горизонтали */
+    align-items: center;                /* Центрируем текст по вертикали */
+    min-width: max-content;             /* Ограничивание ширины размером содержимого */
+}
+
+/* стиль ссылок меню при наведении */
+.menu-links a:hover {
+    background-color: #45343D;          
+    color: white;                      
+    border: 2px solid transparent;      /* Прозрачные границы */
+    border-color: #45343D;              /* тонкий контур */
+    padding: 4px 8px;                  /* небольшие отступы вокруг текста при наведении */
+}
+
+/* стиль логотипа SHINE на главной странице и в футере */
+.logo1, .logo2 {
+    font-family: "Forum", serif;
+    font-size: 38px;
+    margin: 0px;
+}
+
+/* стиль офферного блока */
+.offer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+/* слоган в оффере */
+.slogan {
+    margin-top: 130px;
+    margin-bottom: 0px;
+    height: 28px;
+}
+
+/* крупный заголовок в оффере */
+.title {
+    font-size: 121px;
+    font-family: "Forum", serif;
+    margin-top: 123px;
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 112px;
+}
+
+.shop {
+    color: white;
+    font-weight: 200;
+    font-size: 16px;
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+
+/* кнопка "Зарегистрироваться" */
+.registr_btn {
+    width: 243px;
+    margin-top: 129px;
+}
+
+
+
+/* стили второй секции */
+
+.container2 {
+    height: 800px;
+    background-image: url('images/фон секция2.png');
+    align-items: center;
+    justify-content: center; 
+    margin-top: 0px;
+}
+
+.block2 {
+    flex-direction: row; /* все дочерние конструкции(контейнеры) располагаются рядом друг с другом */
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    flex-shrink: 0;
+    gap: 50px; 
+}
+
+/* общие стили левого и правого контейнеров второго блока */
+.left_part,
+.right_part {
+    margin-top: 90px;      
+    margin-bottom: 90px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.left_part {
+    width: 40%;           
+    align-items: flex-start; 
+}
+
+.right_part {
+    width: 60%;          
+    align-items: flex-end; 
+}
+
+/* заголовок "О НАС" */
+.about_us {                    
+    margin-left: 0px;  
+    margin-bottom: 0px;
+    margin-top: 0px;        
+    justify-content: center;        
+}
+
+/* общий стиль небольших текстовых абзацев */
+.small_text1, .small_text2, .small_text3, .small_text4, .small_text5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 0px;
+}
+
+.small_text1 {
+    margin-top: 60px;
+}
+
+.small_text2 {
+    margin-top: 24px;
+}
+
+.small_text3 {
+    margin-right: 95px;
+    margin-top:20px;
+}
+
+.small_text4 {
+    margin-right: 70px;
+    margin-top: 10px;
+}
+
+.small_text5 {
+    margin-bottom: 0px;   
+}
+
+/* изображение девушки слева */
+.woman1 {
+    position: relative;
+	width: 190px;
+    margin-top: 69px;
+    margin-left: 80px;
+} 
+
+/* изображение девушки справа */
+.woman2 {
+	width: 315px;
+    margin-right: 0px;
+}  
+
+
+
+/* стили третьей секции */
+
+.container3 {
+    height: 623px;
+    background-color: white;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 0px;
+}
+
+.block3 {
+    flex-direction: column; /* все дочерние конструкции(контейнеры) располагаются друг под другом */
+    margin-top: 0px;
+    padding-top: 0px;
+    flex-shrink: 0;
+}
+
+/* контейнер для заголовка "ПОЧЕМУ ИМЕННО МЫ?" */ 
+.header {
+    justify-content: center;
+    display: flex;
+}
+
+/* стиль заголовка "ПОЧЕМУ ИМЕННО МЫ?" */
+.why_we {
+    font-family: "Forum", serif; 
+    font-size: 67px;
+    margin-top: 90px;
+    height: 80px;
+}
+
+/* Бокс карточек с преимуществами */
+.benefits_cards {
+    display: flex;
+    flex-wrap: wrap;             
+    justify-content: space-evenly; 
+    margin-top: 75px;
+    gap: 20px;
+    margin-bottom: 90px;
+}
+
+/* стиль каждой карточки */
+.benefit {
+    flex-basis: calc(25% - 20px); 
+    max-width: 100%;               
+    text-align: left;            
+}
+
+/* стиль каждого изображения в карточке */
+.benefit_img {
+    width: 100%;                 
+    object-fit: contain;          
+    height: auto;
+}
+
+/* стиль текста преимущества */
+.benefit_text {
+    margin-left: 0px;
+    margin-top: 42px;
+    line-height: 18px;
+}
+
+
+
+/* стили четвертой секции */
+
+.container4 {
+    height: 800px;
+    background-color: #FEDCDC;
+    align-items: center;
+    justify-content: flex-start; 
+    margin-top: 0px;
+}
+
+.block4 {
+    position: relative; 
+    flex-direction: column; /* все дочерние конструкции(контейнеры) располагаются друг под другом */
+    justify-content: flex-start;  
+    margin-top: 0px;
+    padding-top: 0px;
+    flex-shrink: 0;
+}
+
+/* стили изображений девушки слева и справа */
+.woman3, .woman4 {
+    position: absolute;  
+    z-index: 1;  
+    width: 290px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* девушка слева */
+.woman3 {
+    left: 170px;
+    bottom: 90px; 
+}
+
+/* девушка справа */
+.woman4 {
+    right: 0px;     
+    top: 90px;       
+}
+
+/* фразы с заглавными буквами */
+.phrase1, .phrase2, .phrase3, .phrase6 {                 
+    display: flex;                
+    align-items: center;           
+    justify-content: center;       
+    margin: 0;                     
+    position: relative;            
+    z-index: 10;                  
+}
+
+.phrase1 {
+    position: absolute;
+    top: 90px;
+}
+
+.phrase2 {
+    position: absolute;
+    left: 70px;
+    top: 364px;
+}
+
+.phrase3 {
+    position: absolute;
+    top: 637px;
+}
+
+.phrase6 {
+    position: absolute;
+    top: 652px; 
+    right: 0px;
+    line-height: 35px;
+}
+
+/* фраза "нежная и романтичная" */
+.phrase4 {
+   z-index: 10;  
+   line-height: 18px;
+   margin-top: 90px;
+   margin-left: 513px;
+   margin-bottom: 0px;
+   align-items: center;   
+}
+
+/* фраза "нежная и романтичная" - продолжение */
+.phrase4_1 {
+    z-index: 10;  
+    line-height: 18px;
+    margin-left: 540px;
+    margin-top: 0px;
+    align-items: center;   
+}
+
+/* фраза "элегантная и притягательная" */
+.phrase5 {
+   z-index: 10;  
+   margin-top: 518px;
+   margin-left: 410px;
+   margin-bottom: 0px;
+}
+
+/* фраза "элегантная и притягательная" - продолжение */
+.phrase5_1 {
+    z-index: 10;  
+    line-height: 18px;
+    margin-left: 430px;
+    margin-top: -9px;
+}
+
+
+
+/* стили пятой секции */
+
+.container5 {
+    height: auto;
+    background-color: white;
+}
+
+.block5 {
+    flex-direction: row; /* все дочерние конструкции(контейнеры) располагаются рядом друг с другом */
+    width: 70%; 
+    margin: 0 auto; 
+    height: auto; 
+    display: flex;
+    justify-content: space-between;
+    gap: 90px;
+}
+
+.faq_list, .questions_form {
+    flex-grow: 1;
+}
+
+/* Раздел частых вопросов */
+.faq_list {
+    width: 390px;
+    position: relative; 
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+/* заголовок "ЧАСТЫЕ ВОПРОСЫ" */
+.faq_list h1 {
+    margin-bottom: 50px;
+}
+
+ul, li {
+    list-style-type: none;  /* элементы списка частых вопросов без маркера */
+}
+
+/* звездочки в списке faq */
+.star {
+    width: 30px;
+    position: absolute; 
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); /* визуально выровнен центр звезд относительно горизонтальной 
+    линии середины каждого вопроса */
+    cursor: pointer; /* Курсор мыши принимает вид пальца (указатель), подсказывая пользователю, 
+    что элемент кликабельный и предназначен для нажатия или взаимодействия */
+}
+
+/* стиль для вопросов в списке faq*/
+.accordion label { 
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    display: block;
+    user-select: none;
+    position: relative;
+    font-weight: 700;
+    line-height: 18px; 
+}
+
+/* скрытые чекбоксы в состоянии когда мы не нажимаем на вопрос*/
+.accordion input[type="checkbox"] {
+    display: none; /* отключается отображение элемента */
+}
+
+/* стиль для ответов под каждым вопросом */
+.accordion .answer {
+    max-height: 0; /* Высота скрытого ответа равна нулю (не видно на экране). */
+    overflow: hidden; /* Все содержимое вне заданной максимальной высоты прячется */
+    transition: max-height 0.3s ease-in-out; /* Плавное увеличение/сокращение высоты при открытии/закрытии ответа */
+    padding: 0 10px;
+    opacity: 0; /* Ответ изначально прозрачный (невидимый) */
+}
+
+/* текст ответов */
+.accordion .answer p {
+    line-height: 18px; 
+}
+
+/* открытие ответа при выборе чекбокса (клике на вопрос) */
+.accordion input[type="checkbox"]:checked ~ div.answer {
+    max-height: 100vh; /* Когда чекбокс выбран (отмечен), высота чекбокса ответа увеличивается до размера 
+    окна браузера (100vh), делая ответ видимым. */
+    opacity: 1; /* Текст становится непрозрачным */
+    padding: 10px; 
+}
+
+/* Форма для отправки вопросов */
+.questions_form {
+    width: 200px; 
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+/* кнопка "Задать вопрос" */
+.questions_form_btn {
+    width: 190px;
+    padding: 10px 20px;
+    margin: 0 auto; 
+    display: block; 
+    margin-top: 33px;
+}
+
+/* поля формы для вопросов и для регистрации */
+#t1, #t2, #t3, #field1, #field2, #field3, #field4, #field5 {
+    border-color: #78b3af;
+    border-width: 2px;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    height: 31px;
+}
+
+/* поле textarea в форме вопросов */
+#t3 {
+    height: 130px;
+}
+
+/* красная звездочка в обязательных полях для заполнения */
+.required {
+    color: rgb(159, 8, 8);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+input, textarea {
+    outline: none; 
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    resize: vertical;
+    border: 1px solid #ccc; 
+}
+
+
+
+/* стили шестой секции */
+
+.container6 {
+    height: 623px;
+    background-color: white;
+}
+
+/* Блок с формой регистрациии и бонусами, полученными от регистрации */
+.block6 {
+    margin: 0 auto; 
+    flex-direction: row; /* все дочерние конструкции(контейнеры) располагаются рядом друг с другом */
+    justify-content: space-between;
+    gap: 90px;
+    position: relative;
+}
+
+/* Регистрационная часть */
+.registration_block {
+    width: 290px; 
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+/* кнопка "Отправить" */
+.sending_btn {
+    width: 158px;
+    padding: 10px 20px;
+    margin: 0 auto; 
+    display: block; 
+    margin-top: -68px;
+    margin-left: 320px;
+}
+
+/* Бонусная часть */
+.discount {
+    width: 390px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    text-align: right;
+}
+
+/* текст с описанием бонусов, акций, полученных от регистрации */
+.reg_motiv {
+    margin-top: 230px;
+    line-height: 18px;
+    z-index: 100; 
+    position: relative;
+    text-align: left;
+    left: 140px;
+}
+
+
+/* стиль изображения розовой бабочки  */
+.butterfly1 {
+    width: 108px;
+    height: auto;
+    position: absolute; 
+    top: 16px; 
+    right: -67px; 
+}
+
+/* стиль изображения голубой бабочки */
+.butterfly2 {
+    width: 230px;
+    height: auto;
+    position: absolute;
+    top: 190px;
+    right: 200px;
+    z-index: 2; 
+}
+
+/* розовое пятно под текстом с описанием бонусов */
+.spot {
+    width: 480px;
+    height: auto;
+    position: absolute;
+    top: 300px;
+    right: -110px;
+    z-index: 1;  
+}
+
+
+
+/* стили седьмой секции */
+
+.container7 {
+    height: 337px;
+    background-color: #78b3af;
+}
+
+/* футер */
+.block7 {
+    flex-direction: row; /* все дочерние конструкции(контейнеры) располагаются рядом друг с другом */
+    justify-content: space-between; 
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    flex-shrink: 0;
+    color: white;
+    margin: 0 auto; 
+}
+
+/* Бокс с тремя колонками информации */
+.information {
+    margin-top: 90px;
+    height: 157px;
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: nowrap; /* Запрещает автоматический перенос текста */
+    gap: 30px; 
+}
+
+/* столбцы с информацией */
+.part1, .part2, .part3 {
+    flex: 1; 
+    text-align: left; 
+    white-space: nowrap; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.part1 {
+    height: 96px;
+}
+
+.part2 {
+    height: 157px;
+}
+
+.part3 {
+    height: 132px;
+}
+
+/* логотип SHINE */
+.logo2 {
+    margin-top: 90px;
+    cursor: pointer; /* можно, нажав на логотип, вернуться на главуню секцию */
+}
+
+.logo2-link {
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    color: white;           /* Устанавливаем белый цвет текста */
+}
+
+/* иконки соц сетей */
+.icons {
+    margin-top: 5px;
+    width: 91px;
+    height: 26px;
+    display: flex;              
+    align-items: center;        
+    justify-content: center;    
+}
+
+.vk {
+    width: 26px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.instagram, .telegram {
+    width: 20px;               
+    height: 20px;
+    margin: 0 5px;            
+}
