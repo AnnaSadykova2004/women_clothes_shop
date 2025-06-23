@@ -80,7 +80,16 @@ p {
     font-size: 35px;
     line-height: 23px; 
     display: inline-block;
+    animation: rotation 5s linear infinite ;
 }
+
+/* Анимация плавного поворота для декоративного текста */
+
+@keyframes rotation {
+ 25% { transform: rotate(3deg); }
+ 75% { transform: rotate(-3deg); }
+}
+
 
 button {
     cursor: pointer;
@@ -123,6 +132,8 @@ button {
     margin-top: 57px; 
     padding: 0px;
     height: 42px;
+    gap: 30px;
+    
 }
 
 /* стиль ссылок в блоке меню */
@@ -130,6 +141,8 @@ button {
     display: flex;      
     gap: 20px;          
     margin: 0px;
+    justify-content: end;
+
 }
 
 /* сами ссылки меню */
@@ -188,11 +201,13 @@ button {
     margin-bottom: 0px;
     padding: 0px;
     height: 112px;
+    animation: jackInTheBox;
+    animation-duration: 2s; 
 }
 
 .shop {
     color: white;
-    font-weight: 200;
+    font-weight: 500;
     font-size: 16px;
     margin-top: 35px;
     margin-bottom: 0px;
@@ -260,10 +275,12 @@ button {
     font-size: 16px;
     line-height: 18px;
     margin-bottom: 0px;
+    text-align: left;
 }
 
 .small_text1 {
     margin-top: 60px;
+    
 }
 
 .small_text2 {
@@ -315,6 +332,8 @@ button {
     margin-top: 0px;
     padding-top: 0px;
     flex-shrink: 0;
+    
+    
 }
 
 /* контейнер для заголовка "ПОЧЕМУ ИМЕННО МЫ?" */ 
@@ -329,11 +348,13 @@ button {
     font-size: 67px;
     margin-top: 90px;
     height: 80px;
+    text-align: center;
 }
 
 /* Бокс карточек с преимуществами */
 .benefits_cards {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;             
     justify-content: space-evenly; 
     margin-top: 75px;
@@ -345,15 +366,33 @@ button {
 .benefit {
     flex-basis: calc(25% - 20px); 
     max-width: 100%;               
-    text-align: left;            
+    text-align: left;
+    transition-timing-function: ease; 
+    transition-property: text-shadow, transform;
+    transition-duration: 1s; 
 }
+
+/* анимация карточек: при наведении карточка увеличивается и вокруг нее появляется легкая розовая тень*/
+.benefit:hover {
+    text-shadow: 0px 0px 4px #ffc2c2;
+    transform: scale(1.1,1.1);
+}
+
 
 /* стиль каждого изображения в карточке */
 .benefit_img {
-    width: 100%;                 
-    object-fit: contain;          
-    height: auto;
+    width: 190px;
+    height: auto;                 
+    object-fit: contain;
+    transition-timing-function: ease;
+    transition-property: box-shadow;
+    transition-duration: 1s; 
 }
+
+.benefit_img:hover {
+    box-shadow: 0px 0px 10px #ffc2c2;
+}
+
 
 /* стиль текста преимущества */
 .benefit_text {
@@ -361,8 +400,6 @@ button {
     margin-top: 42px;
     line-height: 18px;
 }
-
-
 
 /* стили четвертой секции */
 
@@ -390,7 +427,16 @@ button {
     width: 290px;
     height: auto;
     object-fit: contain;
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+
 }
+
+.woman3:hover, .woman4:hover {
+    filter: grayscale(0%);
+}
+
+
 
 /* девушка слева */
 .woman3 {
@@ -411,7 +457,14 @@ button {
     justify-content: center;       
     margin: 0;                     
     position: relative;            
-    z-index: 10;                  
+    z-index: 10;
+                   
+}
+
+/* анимация фраз: при скролле на эту часть лендинга фразы движутся справа налево */
+
+.phrases_animation {
+    animation: slideInLeft 2s;
 }
 
 .phrase1 {
@@ -439,19 +492,23 @@ button {
 
 /* фраза "нежная и романтичная" */
 .phrase4 {
-   z-index: 10;  
-   line-height: 18px;
-   margin-top: 90px;
-   margin-left: 513px;
-   margin-bottom: 0px;
-   align-items: center;   
+    z-index: 10;  
+    line-height: 18px;
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: 275px;
+    margin-bottom: 0px;
+    align-items: center;   
 }
 
 /* фраза "нежная и романтичная" - продолжение */
 .phrase4_1 {
     z-index: 10;  
     line-height: 18px;
-    margin-left: 540px;
+    margin-left: auto;
+    margin-right: 210px;
+
+    /* margin-left: 540px; */
     margin-top: 0px;
     align-items: center;   
 }
@@ -462,6 +519,7 @@ button {
    margin-top: 518px;
    margin-left: 410px;
    margin-bottom: 0px;
+   
 }
 
 /* фраза "элегантная и притягательная" - продолжение */
@@ -524,6 +582,7 @@ ul, li {
     что элемент кликабельный и предназначен для нажатия или взаимодействия */
 }
 
+
 /* стиль для вопросов в списке faq*/
 .accordion label { 
     cursor: pointer;
@@ -535,7 +594,8 @@ ul, li {
     user-select: none;
     position: relative;
     font-weight: 700;
-    line-height: 18px; 
+    line-height: 18px;
+    
 }
 
 /* скрытые чекбоксы в состоянии когда мы не нажимаем на вопрос*/
@@ -565,9 +625,13 @@ ul, li {
     padding: 10px; 
 }
 
+.question{
+        text-align: left;
+    }
+
 /* Форма для отправки вопросов */
 .questions_form {
-    width: 200px; 
+    width: 250px; 
     margin-top: 90px;
     margin-bottom: 90px;
 }
@@ -608,13 +672,25 @@ label {
 }
 
 input, textarea {
-    outline: none; 
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    resize: vertical;
-    border: 1px solid #ccc; 
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            resize: vertical;
+            border: 1px solid #ccc;
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            box-shadow: none;
+            transition: background-color 0.3s;
 }
+
+/* Светло-зеленый цвет для полей форм */
+.valid-field {
+    background-color: #98FB98; 
+}
+
 
 
 
@@ -657,119 +733,174 @@ input, textarea {
     margin-top: 90px;
     margin-bottom: 90px;
     text-align: right;
-}
-
-/* текст с описанием бонусов, акций, полученных от регистрации */
-.reg_motiv {
-    margin-top: 230px;
-    line-height: 18px;
-    z-index: 100; 
     position: relative;
-    text-align: left;
-    left: 140px;
+    flex-direction: column;
+
+} 
+
+.upper_part {
+    position:relative;
 }
 
+.reg_motiv1 {
+    line-height: 1.2; /* уменьшаем межстрочный интервал */
+    white-space: nowrap;
+}
 
 /* стиль изображения розовой бабочки  */
 .butterfly1 {
     width: 108px;
     height: auto;
     position: absolute; 
-    top: 16px; 
-    right: -67px; 
+    top: -76px; 
+    right: -67px;
+    animation: moving 5s linear infinite ;
+    
+} 
+
+.lower_part {
+    margin-top: 200px;
+    position:relative;
 }
+
+/* текст с описанием бонусов, акций, полученных от регистрации */
+.reg_motiv2 {
+    margin-top: 0px;
+    line-height: 18px;
+    z-index: 100; 
+    position: absolute;
+    text-align: left;
+    left: 140px;
+    right: 0; /* фиксируем позицию у правого края родителя */
+    left: unset; /* отменяем левую фиксацию */
+}  
 
 /* стиль изображения голубой бабочки */
 .butterfly2 {
-    width: 230px;
+    width: 180px;
     height: auto;
     position: absolute;
-    top: 190px;
-    right: 200px;
-    z-index: 2; 
-}
+    top: -130px; 
+    right: 220px;
+    z-index: 2;
+    animation: moving 5s linear infinite ;
+} 
 
 /* розовое пятно под текстом с описанием бонусов */
 .spot {
     width: 480px;
     height: auto;
     position: absolute;
-    top: 300px;
+    top: -50px;
     right: -110px;
     z-index: 1;  
+} 
+
+/* анимация движения бабочек */
+
+@keyframes moving {
+ 0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, 5px);
+  }
+  50% {
+    transform: translate(-5px, 10px);
+  }
+  75% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 
 
 /* стили седьмой секции */
 
+/* Основной контейнер страницы */
 .container7 {
-    height: 337px;
+    padding-bottom: 90px;  /* Нижнее поле для сохранения отступа */
     background-color: #78b3af;
+    position: relative;
 }
 
-/* футер */
+/* Блок содержащий информацию */
 .block7 {
-    flex-direction: row; /* все дочерние конструкции(контейнеры) располагаются рядом друг с другом */
-    justify-content: space-between; 
-    margin-top: 0px; 
-    margin-bottom: 0px; 
-    flex-shrink: 0;
-    color: white;
-    margin: 0 auto; 
-}
-
-/* Бокс с тремя колонками информации */
-.information {
-    margin-top: 90px;
-    height: 157px;
     display: flex;
-    justify-content: space-between; 
-    flex-wrap: nowrap; /* Запрещает автоматический перенос текста */
-    gap: 30px; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    gap: 50px;
 }
 
-/* столбцы с информацией */
-.part1, .part2, .part3 {
-    flex: 1; 
-    text-align: left; 
-    white-space: nowrap; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-}
-
-.part1 {
-    height: 96px;
-}
-
-.part2 {
-    height: 157px;
-}
-
-.part3 {
-    height: 132px;
-}
-
-/* логотип SHINE */
+/* Верхний логотип */
 .logo2 {
-    margin-top: 90px;
-    cursor: pointer; /* можно, нажав на логотип, вернуться на главуню секцию */
+    margin-top: 90px; /* Верхний отступ для соблюдения расстояния */
+    cursor: pointer;
 }
 
+/* Кнопка возврата наверх */
+.back-to-main {
+    font-size: 1rem;
+    text-decoration: underline;
+    color: inherit;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Внешний контейнер для информации */
+.information-container {
+    flex-grow: 1;                  /* Растяжение на оставшуюся высоту */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Внутренний контейнер с информационными частями */
+.information {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;             /* Не разрешаем перенос на другие строки */
+    gap: 30px;
+}
+
+/* Отдельные информационные блоки */
+.part1, .part2, .part3 {
+    text-align: left;
+    white-space: normal;           /* Текст может переноситься на следующие строки */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;        /* Выравниваем начало текста слева-вверху */
+    gap: 10px;
+}
+
+/* Специальные настройки для конкретной части */
+.part1 { min-height: 96px; }
+.part2 { min-height: 157px; }
+.part3 { min-height: 132px; }
+
+/* Стилизация ссылок */
 .logo2-link {
-    text-decoration: none; /* Убираем подчеркивание ссылки */
-    color: white;           /* Устанавливаем белый цвет текста */
+    text-decoration: none;
+    color: white;
 }
 
-/* иконки соц сетей */
+/* Социальные сети */
 .icons {
     margin-top: 5px;
     width: 91px;
     height: 26px;
-    display: flex;              
-    align-items: center;        
-    justify-content: center;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vk {
@@ -779,7 +910,402 @@ input, textarea {
 }
 
 .instagram, .telegram {
-    width: 20px;               
+    width: 20px;
     height: 20px;
-    margin: 0 5px;            
+    margin: 0 5px;
 }
+
+
+
+
+/* Медиа запросы для адаптивности */
+ 
+@media screen and (max-width: 1200px)  /* экран от 1200 до 993 пикселей */
+
+   { 
+
+    /*изменения для 1 секции*/
+   
+	.menu-links {     
+        gap: 8px;
+        margin-left: 30px;
+    }
+
+    /* изменения для 2 секции*/
+
+    .small_text1 {
+        width: 300px;
+    }
+
+    .small_text3 {
+        width: 370px;
+        margin-right: 60px;
+    }
+
+    /* изменения для 3 секции*/
+
+    .benefit_img {
+        width: 155px;
+    }
+
+    
+    /* изменения для 4 секции*/
+
+    .woman3, .woman4 {
+        width: 260px;
+    }
+
+    .phrase6 {
+        top: 540px; 
+    }
+
+    /* изменения для 5 секции*/
+
+    .question{
+        width: 330px;
+    }
+
+    /* изменения для 7 секции*/
+
+    .information {
+        gap: 20px; 
+    }
+
+   
+   } 
+   
+   
+@media screen and (max-width: 992px)  /* экран от 992 до 769 пикселей */
+   
+   { 
+
+    /* изменения для 1 секции*/
+    
+    .menu-links {     
+        flex-wrap: wrap;
+    }
+
+    .menu {     
+        gap: 20px;
+    }
+
+    
+    /* изменения для 2 секции*/
+
+    .small_text2 {
+        width: 300px;
+    }
+
+    .woman2 {
+        width: 280px;
+    }
+
+    .woman1 {
+	width: 170px;
+} 
+
+    .small_text3 {
+    width: 250px;
+}
+
+    .small_text4 {
+        width: 200px;
+    }
+
+    /* изменения для 3 секции*/
+
+    .container3 {
+        height: 863px;
+    }
+
+    .block3 {
+        gap: 30px;
+        align-items: center;
+    } 
+
+    .why_we {
+        font-size: 57px;
+    }
+
+    .benefits_cards {
+        width: 500px;
+        margin-top: 40px;
+    }
+
+    .benefit_img {
+        width: 175px;
+    }
+
+    .benefit_text {
+        font-size: 20px;
+        margin-top: 16px;
+        margin-bottom: 28px;
+        line-height: 22px;
+    }
+
+    /* изменения для 4 секции*/
+
+    .woman3, .woman4 {
+        width: 210px;
+    }
+
+    .woman3 {
+        left: 130px;
+    }
+
+        /* фраза "нежная и романтичная" */
+    .phrase4 {
+        margin-right: 215px;
+    }
+
+        /* фраза "нежная и романтичная" - продолжение */
+    .phrase4_1 {
+        margin-right: 150px;
+    }
+
+        /* фраза "элегантная и притягательная" */
+    .phrase5 {
+    margin-left:280px;
+    }
+
+        /* фраза "элегантная и притягательная" - продолжение */
+    .phrase5_1 {
+        margin-left: 300px;
+
+    }
+
+        /* фраза "а какая ты сегодня?"*/
+    .phrase6 {
+        top: 500px;
+    }
+
+    /* изменения для 5 секции*/
+
+    .block5 {
+        gap: 50px;
+    }
+
+    .question{
+        width: 250px;
+    } 
+
+
+    /* изменения для 6 секции*/
+    
+    .butterfly1 {
+        width: 78px;
+        margin-top: 20px;
+    }
+
+    .butterfly2 {
+        width: 140px;
+        margin-right: -30px;
+        margin-top: 20px;
+    }
+
+    .spot {
+        width: 400px;
+        height: 187px;
+    }
+
+    .reg_motiv1 {
+        flex-wrap: nowrap;
+        width: 169px;
+    }
+
+    .reg_motiv2 {
+        width: 234px;
+        font-size: 15px;
+        flex-wrap: nowrap;
+    }
+
+    .registrtration_block {
+        width: 100%;       
+        max-width: 230px;
+    }
+
+    .registr_form {
+        width: 100%;     
+        max-width: 230px; 
+        margin: 0 auto;   
+    }
+   
+   } 
+	
+   
+@media screen and (max-width: 768px) /* экран от 768 до 577 пикселей */
+   
+   { 
+
+    /* уменьшение размера надписей возле форм */
+
+    label {
+        font-size: 18px;
+    }
+
+    /* изменения для 1 секции*/
+
+    .menu {     
+        gap: 20px;
+    }
+
+    .menu-links {     
+        gap: 6px;
+        margin-left: 10px;
+    }
+
+    /* изменения для 2 секции*/
+
+    .small_text1 {
+        margin-top: 10px;
+        width: 270px;
+    }
+
+    .small_text2 {
+        width: 210px;
+    }
+
+    .small_text3{
+        margin-right: 0px;
+    }
+
+    .small_text4 {
+        margin-right: 50px;
+    }
+
+    .woman2 {
+        width: 220px;
+    }
+
+    .woman1 {
+	    width: 170px;
+        margin-left: 20px;
+    } 
+
+
+    /* изменения для 3 секции*/
+
+    .container3 {
+    height: 1843px;
+    }
+
+
+    .benefits_cards {
+        flex-direction: column; /*изменение расположения элементов блока для лучшего отображения на маленьком экране */
+        align-items: center;
+    }
+
+    .benefit_img {
+        width: 250px;
+    }
+
+    /* изменения для 4 секции*/
+
+
+    .woman3, .woman4 {
+        width: 180px;
+    }
+
+        /* фраза "нежная и романтичная" */
+    .phrase4 {
+        margin-right: 185px;
+    }
+
+        /* фраза "нежная и романтичная" - продолжение */
+    .phrase4_1 {
+        margin-right: 120px;
+    }
+
+        /* фраза "элегантная и притягательная" */
+    .phrase5 {
+        margin-left:250px;
+        margin-top: 538px;
+    }
+
+        /* фраза "элегантная и притягательная" - продолжение */
+    .phrase5_1 {
+        margin-left: 270px;
+    }
+
+        /* фраза "а какая ты сегодня?"*/
+    .phrase6 {
+        top: 360px;
+    }
+
+
+    /* изменения для 5 секции*/
+
+    .block5 {
+        flex-direction: column; /*изменение расположения элементов блока для лучшего отображения на маленьком экране */
+        gap: 0px;
+        align-items: center;
+            
+    }
+
+    .question{
+        width: 400px;
+    } 
+
+        /* Форма для отправки вопросов */
+    .questions_form {
+        width: 400px; 
+        margin-top: -50px;
+        margin-bottom: 90px;
+    }
+
+    #t1, #t2, #t3 {
+        font-size: 18px;
+    }
+
+    /* изменения для 6 секции*/
+
+    .container6 {
+        height: 1073px;
+    }
+
+
+    .block6 {
+        flex-direction: column-reverse; /*изменение расположения элементов блока для лучшего отображения на маленьком экране */
+        gap: 0px;
+    }
+
+
+    /* стиль изображения розовой бабочки  */
+    .butterfly1 {
+        width: 108px;
+        top: -86px; 
+        right: -77px; 
+    } 
+
+    /* стиль изображения голубой бабочки */
+    .butterfly2 {
+        width: 200px;
+        top: -150px; 
+
+    } 
+
+    /* розовое пятно под текстом с описанием бонусов */
+    .spot {
+        width: 420px;
+        right: -80px;
+
+    }
+
+    .registr_form {
+        margin-right: 90px;
+
+    }
+
+    #field1, #field2, #field3, #field4, #field5 {
+        width: 280px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    /* кнопка "Отправить" */
+    .sending_btn {
+        width: 148px;
+        margin-left: 300px;
+    }
+
+   }
