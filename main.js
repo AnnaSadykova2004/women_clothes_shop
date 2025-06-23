@@ -1,4 +1,3 @@
-
 //перенос на секцию сайта с регистрацией при нажатии кнопки
 
 function scrollToSection(sectionId) {
@@ -241,7 +240,8 @@ const validationRulesFeedback = {
     ],
     t3: [
         { type: 'required', message: 'Введите вопрос.' },
-        { type: 'customRegex', regex: /^[A-Za-zА-Яа-яЁё0-9\s.,!?:;"'-]*$/, message: 'Вопрос должен быть осмысленным текстом.' }
+        { type: 'customRegex', regex: /^[A-Za-zА-Яа-яЁё\s][A-Za-zА-Яа-яЁё\d\s.,!?:;"'-]{2,}[A-Za-zА-Яа-яЁё\s]*$/, 
+        message: 'Вопрос должен быть осмысленным текстом.' }
     ]
 };
 
