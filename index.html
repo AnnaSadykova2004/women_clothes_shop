@@ -6,13 +6,17 @@
 
     <title>SHINE | Магазин женской одежды</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- подключение файла стилей -->
+    
+    <!-- подключение новых шрифтов из Google Fonts-->
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Forum&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    
+    <!-- подключение библиотеки анимаций-->
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
    
 </head>
 
@@ -27,13 +31,12 @@
                 <h1 class="logo1">SHINE</h1>
 
                 <div class="menu-links">
-                    <a href="#main">Главная</a>
-                    <a href="#about-us">О нас</a>
-                    <a href="#advantages">Выгоды</a>
-                    <a href="#image">Образы</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#registration">Регистрация</a>
-                    <a href="#contacts">Контакты</a>
+                    <a class="link" href="#about-us">О нас</a>
+                    <a class="link" href="#advantages">Выгоды</a>
+                    <a class="link" href="#image">Образы</a>
+                    <a class="link" href="#faq">FAQ</a>
+                    <a class="link" href="#registration">Регистрация</a>
+                    <a class="link" href="#contacts">Контакты</a>
                 </div>
             </div>
             <!-- Оффер -->
@@ -42,14 +45,11 @@
                 <h1 class="title">SHINE</h1>
                 <h1 class="shop">Магазин женской одежды</h1>
                 <!-- Кнопка побуждения к действию, перенаправляет на секцию с формой регистрации-->
-                <button class="registr_btn">Зарегистрироваться</button>
+                <button class="registr_btn" onclick="scrollToSection('registration')">Зарегистрироваться</button>
             </div> 
 
         </div>
-
-        <!-- переход на главную секцию -->
-        <a href="#main" class="back-to-main">Наверх ↑</a>
-
+        
     </div>
 
 
@@ -147,6 +147,8 @@
             <img class='woman3' src="images/девушка3.png"></img>
             <img class='woman4' src="images/девушка4.png"></img>
 
+            
+
         </div>
 
         <!-- переход на главную секцию -->
@@ -169,7 +171,7 @@
                     <li>
                         <input id="q1" type="checkbox"/>
                         <label for="q1">
-                            Есть ли примерка при доставке?<img class="star" src="images/звездочка.png">
+                            <p class="question">Есть ли примерка при доставке?</p><img class="star" src="images/звездочка.png">
                         </label>
                         <div class="answer">
                             <p>Да, мы предоставляем возможность примерки товаров перед покупкой...</p>
@@ -178,7 +180,7 @@
                     <li>
                         <input id="q2" type="checkbox"/>
                         <label for="q2">
-                            Как связаться со службой поддержки?<img class="star" src="images/звездочка.png">
+                            <p class="question">Как связаться со службой поддержки?</p><img class="star" src="images/звездочка.png">
                         </label>
                         <div class="answer">
                             <p>Вы можете обратиться к нам по телефону горячей линии...</p>
@@ -187,7 +189,7 @@
                     <li>
                         <input id="q3" type="checkbox"/>
                         <label for="q3">
-                            Оформление карты лояльности<img class="star" src="images/звездочка.png">
+                            <p class="question">Оформление карты лояльности</p><img class="star" src="images/звездочка.png">
                         </label>
                         <div class="answer">
                             <p>Чтобы оформить карту лояльности нашего бренда, достаточно зарегистрировать аккаунт на сайте...</p>
@@ -196,7 +198,7 @@
                     <li>
                         <input id="q4" type="checkbox"/>
                         <label for="q4">
-                            Можно ли сделать возврат товара?<img class="star" src="images/звездочка.png">
+                            <p class="question">Можно ли сделать возврат товара?</p><img class="star" src="images/звездочка.png">
                         </label>
                         <div class="answer">
                             <p>Да, согласно Закону РФ о защите прав потребителей, вы имеете право 
@@ -206,7 +208,7 @@
                     <li>
                         <input id="q5" type="checkbox"/>
                         <label for="q5">
-                            Как правильно ухаживать за вашей одеждой?<img class="star" src="images/звездочка.png">
+                            <p class="question">Как правильно ухаживать за вашей одеждой?</p><img class="star" src="images/звездочка.png">
                         </label>
                         <div class="answer">
                             <p>Рекомендовано соблюдать инструкции на ярлыке каждого изделия...</p>
@@ -215,7 +217,8 @@
                 </ul>
             </div>
             <!-- Форма для отправки вопросов -->
-            <form class="questions_form" action="#" method="POST" enctype="multipart/form-data">
+            <form class="questions_form" method="POST" enctype="multipart/form-data" action=""
+                onsubmit="return handleSubmit(event, validationRulesFeedback, this)">
                 
                 <div>
                     <label for="t1">Ваше имя:<span class="required"> *</span></label>
@@ -230,10 +233,9 @@
                 <div>
                     <label for="t3">Ваш вопрос:<span class="required"> *</span></label>
                     <textarea id='t3' name="question" rows="4" cols="50" placeholder="Опишите подробно ваш вопрос..." required></textarea>
-                
                 </div>
                 <!-- Кнопка отправления вопроса -->
-                <button type="submit" class="questions_form_btn">Задать вопрос</button>
+                <button id="form1_btn" type="submit" class="questions_form_btn" onclick="changeColor(this)">Задать вопрос</button>
 
             </form>
 
@@ -254,7 +256,8 @@
 
                 <h1><span class="title_text">РЕГИСТРАЦИЯ</span></h1>
                 <!-- Форма регистрации -->
-                <form class='registr_form' action="#" method="POST" enctype="multipart/form-data">
+                <form class="registr_form" method="POST" enctype="multipart/form-data" action=""
+                    onsubmit="return handleSubmit(event, validationRulesRegistration, this)">
                 
                     <div>
                         <label for="field1">Ваше имя:<span class="required"> *</span></label>
@@ -262,8 +265,8 @@
                     </div>
 
                     <div>
-                        <label for="field2">Номер телефона:<span class="required"> *</span></label>
-                        <input id='field2' type="tel" name="tel" placeholder="Введите телефон: 8 999-999-9999" required />
+                        <label for="field2">Введите телефон:<span class="required"> *</span></label>
+                        <input id='field2' type="tel" name="tel" placeholder="8 999-999-9999" required />
                     </div>
 
                     <div>
@@ -281,7 +284,7 @@
                         <input id='field5' type="password" name="userpass" placeholder="********" required />
                     </div>
                     <!-- кнопка совершения регистрации -->
-                    <button type="submit" class="sending_btn">Отправить</button>
+                    <button id="form2_btn" type="submit" class="sending_btn" onclick="changeColor(this)">Отправить</button>
 
                 </form>
 
@@ -289,15 +292,22 @@
             <!-- Бонусная часть -->
             <div class="discount">
 
-                <p><span class="title_text">СКИДКА 20%</span> с картой лояльности</p>
-                <p class="reg_motiv">Зарегистрируйтесь на нашем <br> сайте и откройте доступ к 
-                <br> личным скидкам, подаркам и <br> спецпредложениям</p>
+                <div class='upper_part'>
+                    <p><span class="title_text">СКИДКА 20%</span><span class="reg_motiv1"> с картой лояльности</span></p>
+                    <img class='butterfly1' src="images/бабочка_роз.png"></img>
+                </div>
+                
+                <div class='lower_part'>
+                    <p class="reg_motiv2">Зарегистрируйтесь на нашем <br> сайте и откройте доступ к 
+                    <br> личным скидкам, подаркам и <br> спецпредложениям</p>
 
-            </div>
+                    <img class='butterfly2' src="images/бабочка_зел.png"></img>
+                    <img class='spot' src="images/пятно.png"></img>
+                </div>              
 
-            <img class='butterfly1' src="images/бабочка_роз.png"></img>
-            <img class='butterfly2' src="images/бабочка_зел.png"></img>
-            <img class='spot' src="images/пятно.png"></img>
+            </div>     
+
+
 
         </div>
 
@@ -350,6 +360,8 @@
         <a href="#main" class="back-to-main">Наверх ↑</a>
 
     </div>
+
+<script src="main.js"></script> <!-- подключение файла javascript -->
 
 </body>
 
